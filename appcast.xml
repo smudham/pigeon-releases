@@ -5,6 +5,23 @@
         <link>https://raw.githubusercontent.com/smudham/pigeon-releases/main/appcast.xml</link>
         <description>Pigeon auto-update feed</description>
         <language>en</language>
+        <item>
+            <title>Pigeon 0.1.0</title>
+            <pubDate>Fri, 23 Oct 2026 08:44:30 -0400</pubDate>
+            <sparkle:version>0.1.0</sparkle:version>
+            <sparkle:shortVersionString>0.1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>12.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>What's New</h2>
+                <ul>
+                <li>Initial release</li>
+                </ul>
+            ]]></description>
+            <enclosure url="https://github.com/smudham/pigeon-releases/releases/download/v0.1.0/Pigeon-0.1.0-arm64.zip"
+                       sparkle:edSignature="qpnejp5K0Cy2Sg/LIW5CU5F6ugw8uK23aVjTYjXT7mAlvabvojMWy+APJ3CeQZFau83Kl9a8iG9euVC4yMDvBA=="
+                       length="125359266"
+                       type="application/octet-stream"/>
+        </item>
         <!-- APPCAST_ITEMS -->
     </channel>
 </rss>
