@@ -11,6 +11,7 @@ This repo holds the downloads only. No source code lives here.
 - [Download and install](#download-and-install)
 - [Quick start](#quick-start)
 - [Features](#features)
+- [Import from Postman and export](#import-from-postman-and-export)
 - [Keyboard shortcuts](#keyboard-shortcuts)
 - [Your data](#your-data)
 - [Updates](#updates)
@@ -38,6 +39,8 @@ This repo holds the downloads only. No source code lives here.
 
 Requests in a collection save automatically. The top bar shows **Saving…** and **Saved**.
 
+Moving from Postman? Import your collections and environments first: see [Import from Postman and export](#import-from-postman-and-export).
+
 ## Features
 
 ### Requests
@@ -49,6 +52,7 @@ Requests in a collection save automatically. The top bar shows **Saving…** and
   - **form-data**, with text and file fields
   - **x-www-form-urlencoded**
   - **raw**: JSON, XML, Text, HTML or JavaScript. The matching `Content-Type` is set unless you set it yourself.
+    A JSON body can have `//` and `/* */` comments, as in Postman. Pigeon sends the body without them.
   - **binary**: send a file
   - **GraphQL**: query and variables
 - **Settings** tab per request:
@@ -83,7 +87,7 @@ All auth fields accept `{{variables}}`.
 
 - Collections hold requests directly and in folders, one folder level deep.
 - Right-click for more actions. Double-click a name to rename it.
-  - Collection: **Add request**, **New folder**, **Run**, **Variables and scripts**, **Rename**, **Duplicate**, **Delete**.
+  - Collection: **Add request**, **New folder**, **Run**, **Variables and scripts**, **Export…**, **Rename**, **Duplicate**, **Delete**.
   - Folder: **Add request**, **Rename**, **Delete folder** (its requests move to the collection root).
   - Request: **Rename**, **Duplicate**, **Move to**, **Delete**.
 - Drag requests to reorder them or move them into a folder or another collection. Drag a folder to move it to another collection.
@@ -92,9 +96,16 @@ All auth fields accept `{{variables}}`.
 ### Environments and variables
 
 - Open **Environments** in the sidebar, or click the **Env:** chip next to the request tabs.
-- Create, rename, duplicate and delete environments. **Use for requests** makes one active.
+- Create, rename, duplicate, export and delete environments. **Use for requests** makes one active.
 - Mark a value **SECRET** to hide it on screen.
 - Write `{{name}}` in the URL, params, headers, text body fields and auth fields. File paths are not filled in. Undefined variables are highlighted in the URL.
+- A value can use other variables, for example a `base_url` of `{{scheme}}://{{host}}`. Pigeon fills them in up to 10 levels deep.
+- Hover over a `{{variable}}` in the URL to see where its value comes from: an environment, the collection, or built in. Change the value in the box and press Enter to save it.
+- The background colour of each variable in the URL shows its state:
+  - teal: it has a value.
+  - orange: it is defined, but it has no value yet.
+  - red: it is not defined.
+- To define a red one, hover over it and type a value. Then choose **Add to** (an environment, a new environment or the collection) and press Enter. If an environment that is not active defines it, click **Use** with that environment's name to make it active.
 - When a name is defined in several places, the later one wins: collection variables → active environment → the runner's data file row → values set with `pm.variables.set`.
 - Built-in values: `{{$uuid}}`, `{{$timestamp}}` (milliseconds) and `{{$isoDate}}`.
 
@@ -160,6 +171,52 @@ The **Export code snippet** button (code icon next to **Send**) turns the curren
 - **Search** (Cmd/Ctrl+K) finds requests, collections, folders and API specs by name.
 - The **sun/moon** button switches between dark and light themes.
 - Drag the sidebar edge to resize it, or press Cmd/Ctrl+B to hide it.
+- The response shows below the request. To show them side by side, click the layout button at the right of the **RESPONSE** bar. Click it again to go back. A narrow window always shows the response below.
+- Drag the divider between the request and the response to resize them. Double-click it to reset it. With the divider selected, the arrow keys also move it. Pigeon keeps the layout and the divider position.
+- To make all text larger or smaller, use **View → Zoom In**, **Zoom Out** and **Actual Size**. Pigeon keeps the zoom level after a restart. On Windows, press Alt to show the menu bar.
+
+## Import from Postman and export
+
+The import button (an arrow into a tray) next to **Collections** opens a menu with **Import from Postman…** and **Export all collections and environments…**. When you have no collections yet, the sidebar also shows **Import from Postman**.
+
+### Import from Postman
+
+1. Export from Postman:
+   - **One collection:** open the **•••** menu next to the collection and choose **Export** (under **More**). Collection v2.1 and v2.0 files work. You can also export environments and globals.
+   - **Everything:** open **Settings → Account settings → Export data** and ask for collections and environments. Postman emails you a link to a zip file. On a Postman team, only admins can export all data.
+2. In Pigeon, choose **Import from Postman…**, then:
+   - **Choose files…** for one or more exported files, or for the zip file from Postman's email.
+   - **Choose folder…** for the folder you unzipped the zip file to.
+3. Pigeon lists the collections and environments it found. Clear the check boxes of the ones you do not want, then click **Import**.
+
+Pigeon adds the imports to the Local workspace. If a name is already in use, Pigeon adds " (2)" to it. If a collection uses `{{variables}}` that nothing defines, Pigeon adds them, without values, to a new environment named after the collection. Pigeon leaves out the variables that the collection's scripts set only as collection variables. Postman keeps such variables in environments, which a collection export does not include. The new environment becomes active when no other environment is. Click **Fill in values**, or hover over a variable in a request. Files that are not Postman collections or environments show under **files skipped**, with the reason.
+
+Pigeon and Postman work differently in some places. After the import, Pigeon lists each difference it found and the requests it affects:
+
+- **Folders:** Pigeon has one folder level. A nested folder becomes a folder with a name like "Parent / Child".
+- **Folder scripts:** Pigeon has no folder scripts. Pigeon copies each folder script into the requests of that folder.
+- **Auth set to inherit:** each request gets the auth of its folder or collection.
+- **Path variables:** Pigeon writes the value of a path variable such as `:id` into the URL. A path variable without a value stays in the URL as `:id`.
+- **Dynamic variables:** `{{$guid}}` and `{{$randomUUID}}` become `{{$uuid}}`, and `{{$isoTimestamp}}` becomes `{{$isoDate}}`. Pigeon does not supply values for other Postman dynamic variables, such as `{{$randomInt}}`. Pigeon's `{{$timestamp}}` is in milliseconds, and Postman's is in seconds.
+- **Globals:** Postman globals become an environment named **Globals**. To use them, make it active.
+- **Not imported:** saved example responses and descriptions.
+- **Not supported:**
+  - Auth types other than the four in [Auth](#auth), and OAuth 2.0 grants other than client credentials. Those requests get no auth.
+  - Methods other than the eight in [Requests](#requests). Those requests use GET.
+- **Scripts:** a script fails in Pigeon if it uses `pm.sendRequest`, `pm.globals`, `pm.cookies`, `pm.vault`, `require()` or Postman's old `postman.*` and `tests[...]` API. Postman's script libraries are also not in Pigeon: `Buffer`, `atob` and `btoa`, `CryptoJS`, lodash (`_`), `moment`, `cheerio`, `xml2Json` and `tv4`. See [Scripts and tests](#scripts-and-tests).
+- **Files:** Pigeon does not keep the file paths of file bodies and file fields, so a shared collection cannot read files on your computer. Choose the files again.
+
+If a variable is empty after the import, Postman did not put its value in the export file. Enter the value in Pigeon.
+
+### Export
+
+- **A collection:** right-click it and choose **Export…**. Pigeon saves a Postman Collection v2.1 file with the folders, requests, variables and scripts.
+- **An environment:** open **Environments**, select it and click **Export**.
+- **Everything:** choose **Export all collections and environments…**. Pigeon saves one zip file in the layout of Postman's data export. Pigeon can import this zip file. To import it into Postman, unzip it and import the folder.
+
+Postman, Pigeon and other API clients can import these files.
+
+Pigeon does not put secret values in the file unless you select **Include secret values**. Secret values are the secret environment values and the passwords, tokens, API keys and client secrets of request auth. A value that is only a `{{variable}}` always stays in the file. With **Include secret values**, the file holds these values as plain text. Headers, URLs, bodies and scripts are always saved as they are, so check them for passwords or tokens before you share the file. File paths are not saved.
 
 ## Keyboard shortcuts
 
@@ -182,6 +239,7 @@ The **Export code snippet** button (code icon next to **Send**) turns the curren
   - Windows: `%APPDATA%\Pigeon\`
 - The database holds your collections, environments, API specs, history and load-test runs. Environment secrets and saved auth values are stored in plain text in this file. OAuth tokens are kept in memory only.
 - Your requests, OAuth token requests and spec downloads go only to the addresses you enter and to any redirects those servers send. Pigeon checks this repo on GitHub for updates. It has no usage tracking.
+- **Export** saves copies of your collections and environments as files. See [Export](#export).
 - If the database is damaged, Pigeon asks what to do. It can move the damaged file aside and start fresh. It never deletes it.
 
 ## Updates
