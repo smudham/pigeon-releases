@@ -57,7 +57,56 @@
                 <h2>What's New</h2>
                 <h3>New</h3>
                 <ul>
-                <li>Add Postman globals and UI fixes; follow system theme by default (#34)</li>
+                <li>Mark {{variables}} in the body and flag undefined ones</li>
+                <li>Open a History entry by clicking it, and filter History</li>
+                <li>Find with Cmd+F in the editors and the response</li>
+                <li>Show which request is open, and rename it in place</li>
+                <li>Switch environment from a menu</li>
+                <li>Run commands from search (Cmd+K)</li>
+                <li>Paste a cURL command to create a request</li>
+                <li>Let requests inherit auth from their collection</li>
+                <li>Follow the system's light or dark appearance by default</li>
+                <li>Apply Postman globals under the active environment</li>
+                </ul>
+                <h3>Fixes</h3>
+                <ul>
+                <li>Ask before discarding an unsaved request</li>
+                <li>Keep each request's last response when switching</li>
+                <li>Open the Runner instead of starting a run</li>
+                <li>Stop undo from bringing back another request's body</li>
+                <li>Meet 4.5:1 text contrast in the light theme</li>
+                <li>Make the selected sidebar row stand out from hover</li>
+                <li>Explain why a large response isn't formatted</li>
+                <li>Make modals behave as dialogs</li>
+                <li>Give modals a neutral close button</li>
+                <li>Confirm deletes in the app, with Cancel focused</li>
+                <li>Undo deleting a History entry</li>
+                <li>Move a request with a searchable picker</li>
+                <li>Open requests without a body on Params, and label the tabs</li>
+                <li>Colour the response status by its class</li>
+                <li>Hide the workspace menu when Local is the only workspace</li>
+                <li>Close keyboard and screen-reader gaps</li>
+                <li>Give tints and shadows a light-theme value</li>
+                <li>Give the response the room a short request tab leaves</li>
+                <li>Put the sidebar's views in one row of icons</li>
+                <li>Put every font size on a six-step type scale</li>
+                <li>Put every corner radius on five tokens</li>
+                <li>Size buttons and modals by class, with one disabled look</li>
+                <li>Keep the Save request dialog's fields 32 px tall</li>
+                <li>Keep row colours at 4.5:1 on highlighted rows in light theme</li>
+                </ul>
+                <h3>Performance</h3>
+                <ul>
+                <li>Don't format the same response again on return</li>
+                <li>Skip the collection reload after the window's own save</li>
+                <li>Keep the request screen mounted behind other views</li>
+                <li>Match collections by id when the list reloads</li>
+                <li>Start the script worker before the first test run</li>
+                <li>Draw History 100 rows at a time and delete rows by id</li>
+                <li>Keep Runner progress fast as a run grows</li>
+                <li>Re-evaluate only the rows a sidebar drag concerns</li>
+                <li>Collapse the sidebar without animating its width</li>
+                <li>Load editor languages other than JSON when first shown</li>
                 </ul>
             ]]></description>
             <enclosure url="https://github.com/smudham/pigeon-releases/releases/download/v0.2.0/Pigeon-0.2.0-arm64.zip"
