@@ -148,9 +148,9 @@ All auth fields accept `{{variables}}`.
 ### API docs and mock servers (OpenAPI)
 
 - **Import OpenAPI / Swagger spec** (sidebar, **API Docs**): from a file (JSON or YAML), a URL or pasted text. OpenAPI 3.x and Swagger 2.0 are supported.
-- The docs view lists endpoints by tag with parameters, request bodies, responses, schemas and examples. **Try in builder** opens an endpoint as a request.
+- The docs view lists endpoints by tag with parameters, request bodies, responses, schemas and examples. **Try in builder** opens an endpoint as a request. It goes to the mock server while it runs, to `{{base_url}}` when your environment defines `base_url`, and otherwise to the spec's server (a notice names it).
 - **Edit spec** opens an editor with a live preview. **Re-sync spec** fetches a URL-imported spec again.
-- **Generate collection** creates a collection with one folder per tag.
+- **Generate collection** creates a collection with one folder per tag. Its requests use `{{base_url}}`, set to the spec's server in the collection's variables; a `base_url` in your environment overrides it.
 - **Start mock server** runs a local mock on `127.0.0.1`, on the port shown in the **mock :port** pill.
   - It answers with each operation's example, or one built from the schema.
   - Send `Prefer: code=404` or `Prefer: example=<name>` to choose another response.
