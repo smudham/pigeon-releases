@@ -124,14 +124,135 @@
                 <h2>What's New</h2>
                 <h3>New</h3>
                 <ul>
-                <li>Add drafts, examples, saved runs and path variables (#40)</li>
-                <li>Polish 39 smaller items from the UX review (#39)</li>
-                <li>Fix 42 request, sidebar and accessibility items (#38)</li>
-                <li>Fix the 20 most-hit problems from the UX review (#37)</li>
+                <li>Close the open request with ⌘W</li>
+                <li>Switch requests with ⌃Tab, ⌘[ and ⌘]</li>
+                <li>Keep unsaved requests as drafts</li>
+                <li>Keep example responses with a request</li>
+                <li>Chart a load test second by second</li>
+                <li>Add path variables (/orders/:orderId)</li>
+                <li>Open any result's response and request, keep the run</li>
+                <li>Show the request as sent and the headers added for it</li>
+                <li>Suggest variables after "{{"</li>
+                <li>Read the spec's security for docs, Generate and Try</li>
+                <li>Offer Revert for a saved request's edits</li>
+                <li>Name languages by library and add PowerShell, Java, Go</li>
+                <li>Send each import's files to the right door</li>
+                <li>Preview HTML responses as a page</li>
+                <li>Send any HTTP method, not only the eight in the list</li>
+                <li>Add bulk edit to key/value tables and split pasted lines</li>
+                <li>Duplicate and reorder folders, and order collections</li>
+                <li>Reorder, move and resize in the sidebar from the keyboard</li>
+                <li>Switch environment variables off without deleting them</li>
+                <li>Link, group and copy Postman import notes; accept drops</li>
+                <li>Show the environment each request was sent with</li>
+                <li>Show recent requests and common commands in ⌘K</li>
+                <li>Confirm a saved response and copy headers</li>
+                <li>Explain a response's status, time and size</li>
+                <li>Flag broken JSON bodies and add Beautify</li>
+                <li>List keyboard shortcuts and show them where commands are</li>
+                <li>Indent XML and HTML responses in Pretty mode</li>
+                <li>New requests inherit their collection's auth</li>
+                <li>Add missing import variables to the imported environment</li>
+                <li>Choose what the Runner runs</li>
+                <li>Show and switch the environment in the Runner and load test</li>
+                <li>Add ⌘N and a New menu for new requests</li>
+                <li>Undo deleted requests, folders, collections and runs</li>
+                <li>Show test results next to the response</li>
+                <li>Keep the whole body of a truncated response</li>
                 </ul>
                 <h3>Fixes</h3>
                 <ul>
+                <li>Keep the response toolbar on one row side by side</li>
+                <li>Use three button sizes everywhere</li>
+                <li>Give History, Runner and load test one header and one field</li>
+                <li>Make native dialogs and the window follow the in-app theme</li>
+                <li>Light up search boxes as a whole on focus</li>
+                <li>Say New request and Dismiss wherever the app means them</li>
+                <li>Name tree rows by their own text and group child rows</li>
+                <li>Keep schema columns aligned and mark required one way</li>
+                <li>Mark a spec's parse error and hold actions while editing</li>
+                <li>Name the spec on delete and offer Import afterwards</li>
+                <li>Call the collection dialog Collection settings and mark tabs</li>
+                <li>Stop cutting phase hints and run names in narrow windows</li>
+                <li>Say when Iterations or Delay is changed, and why</li>
+                <li>Keep an entry's name and link to its saved request</li>
+                <li>Give the load test's URL the full width</li>
+                <li>Clear a field's error once the field is fixed</li>
+                <li>Say a pre-request failure once and name a crashed test</li>
+                <li>Line up the Runner's result columns under a heading</li>
+                <li>Use one set of menu labels and flag duplicate names</li>
+                <li>Caption the bottom view icons and set Environments apart</li>
+                <li>Show a blank request after deleting the open one</li>
+                <li>Keep the current spot in the Move picker and say where it is</li>
+                <li>Stop the search box moving as you type or switch views</li>
+                <li>Fit OPTIONS and DELETE in the sidebar's method column</li>
+                <li>Say when a collection, folder or API Docs list is empty</li>
+                <li>Show image responses at a usable size, with their size</li>
+                <li>Put test failures first and fold the pre-request output</li>
+                <li>Make the title path clickable and say "New request" once</li>
+                <li>Say cURL can be pasted, and take -k over as a setting</li>
+                <li>Mark an invalid header name as it is typed</li>
+                <li>Widen the script editors and give both tabs one help</li>
+                <li>Show turned-off rows as off and hide the adding row's box</li>
+                <li>Give dropdowns an arrow and make the body type one click</li>
+                <li>Enlarge small targets and the environment switcher</li>
+                <li>Keep views and the URL usable when zoomed in</li>
+                <li>Keep Undo and the restore notice up while in use</li>
+                <li>Ask and report in the app's dialogs, not the browser's</li>
+                <li>Add landmarks and headings for screen-reader navigation</li>
+                <li>Name the unnamed controls and enlarge the small ones</li>
+                <li>Give every tab and toggle its role, state and keys</li>
+                <li>Keep selection and pressed states in Windows contrast themes</li>
+                <li>Give fields an edge of 3:1 against their surface</li>
+                <li>Bring tinted chips and placeholders to 4.5:1 contrast</li>
+                <li>Open the variable box from the keyboard and in the body</li>
+                <li>Explain a web page URL in the spec import</li>
+                <li>Say when a spec being imported is already there</li>
+                <li>Update the generated collection instead of adding a copy</li>
+                <li>Filter API docs endpoints and try one from its row</li>
+                <li>Show the mock server's URL with a Copy button</li>
+                <li>Give the Environments window room, a filter and bulk edit</li>
+                <li>Hide secret values in code snippets by default</li>
+                <li>Warn when a code snippet will not work as copied</li>
+                <li>Open load-test runs and read their tips from the keyboard</li>
+                <li>Make the load-test target menu searchable and keyboard-usable</li>
+                <li>Keep History's filter and place when coming back to it</li>
+                <li>Compare status, size and headers and fold unchanged lines</li>
+                <li>Filter a run's results to failures or passes</li>
+                <li>Count assertions, untested and stopped requests apart in runs</li>
+                <li>Stop the load-test bar overstating connection time</li>
+                <li>Make the ⌘K palette a modal dialog</li>
+                <li>Find requests by URL and loose words in the ⌘K palette</li>
+                <li>Scroll new requests into view in the sidebar</li>
+                <li>Make sidebar row actions full-size and add a More button</li>
+                <li>Line root requests up with folders in the sidebar</li>
+                <li>Name each kind of failed send and offer the next step</li>
+                <li>Count matches in find and return focus when it closes</li>
+                <li>Say when tests are running and keep the last results</li>
+                <li>Start each response with Auto and all headers</li>
+                <li>Keep the response status line on one line after redirects</li>
+                <li>Keep GraphQL variables in view and highlight the query</li>
+                <li>Show when a request's settings differ from the defaults</li>
+                <li>Put the caret in the URL field for new requests</li>
+                <li>Mark {{variables}} in headers, form rows and auth fields</li>
+                <li>Let generated requests and Try in builder follow base_url</li>
+                <li>Warn when a file row or binary body has no file</li>
+                <li>Treat a cancelled send as the user's choice, not an error</li>
+                <li>Keep Escape inside fields from leaving the view</li>
+                <li>Show {{variables}} in secret auth fields</li>
+                <li>Keep keyboard focus in place after common actions</li>
+                <li>Announce send results and show progress while sending</li>
+                <li>Reach and select the response body from the keyboard</li>
+                <li>Pick the right place in the Save request dialog</li>
+                <li>Open each request on its own tab</li>
+                <li>Wrap the request tabs in the side-by-side layout</li>
+                <li>Send ⌘S and ⌘Enter to the open dialog, not the request</li>
+                <li>Let long collection runs scroll to every result</li>
                 <li>Show responses during tests and even out spacing (#36)</li>
+                </ul>
+                <h3>Performance</h3>
+                <ul>
+                <li>Format large JSON responses without asking</li>
                 </ul>
             ]]></description>
             <enclosure url="https://github.com/smudham/pigeon-releases/releases/download/v0.3.0/Pigeon-0.3.0-arm64.zip"
