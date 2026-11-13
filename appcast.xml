@@ -317,7 +317,11 @@
                 <h2>What's New</h2>
                 <h3>Fixes</h3>
                 <ul>
-                <li>Tidy saved runs, name hovered buttons, stop stuck spec parses (#46)</li>
+                <li>Keep a titled select's name while its tooltip shows</li>
+                <li>Stop a spec parse that runs over five minutes</li>
+                <li>Keep a hovered element's accessible name while its tip shows</li>
+                <li>Delete run details left by a cut-short save at launch</li>
+                <li>Keep no run of a collection deleted while it ran</li>
                 </ul>
             ]]></description>
             <enclosure url="https://github.com/smudham/pigeon-releases/releases/download/v0.4.1/Pigeon-0.4.1-arm64.zip"
