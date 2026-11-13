@@ -268,13 +268,38 @@
             <sparkle:minimumSystemVersion>12.0</sparkle:minimumSystemVersion>
             <description><![CDATA[
                 <h2>What's New</h2>
+                <h3>New</h3>
+                <ul>
+                <li>Load the open request when the Load test view opens</li>
+                </ul>
                 <h3>Fixes</h3>
                 <ul>
-                <li>Show tooltips and turned chevrons; load test the open request (#44)</li>
+                <li>Keep a title the app changes while its tooltip shows</li>
+                <li>Keep a run cleared while it is being saved</li>
+                <li>Keep an old spec worker's exit from failing a new parse</li>
+                <li>Show tooltips for every title, drawn by the app</li>
+                <li>Turn the chevron of closed collections and examples</li>
                 </ul>
                 <h3>Performance</h3>
                 <ul>
-                <li>Speed up large workspaces, runs, responses and imports (#43)</li>
+                <li>Draw a collection's rows only near the visible part</li>
+                <li>Prepare an example's statements once per connection</li>
+                <li>Parse YAML specs in a worker thread</li>
+                <li>Build each mock response body once</li>
+                <li>Generate a collection's requests in one write</li>
+                <li>Keep the last four formatted responses, and format each one</li>
+                <li>Keep the response body mounted while another tab shows</li>
+                <li>Count find matches only when the term or the text changes</li>
+                <li>Show a response of one huge line as plain text</li>
+                <li>Save a finished run in short steps, not one transaction</li>
+                <li>Draw a run's results 200 at a time</li>
+                <li>List requests in their collection's index order</li>
+                <li>Fetch an open result's detail once, not on every batch</li>
+                <li>Lowercase an HTML response once while formatting it</li>
+                <li>Keep a run's response previews without the whole bodies</li>
+                <li>Free each send's request body once it has been used</li>
+                <li>List examples in index order</li>
+                <li>Read the History and draft lists from indexes</li>
                 </ul>
             ]]></description>
             <enclosure url="https://github.com/smudham/pigeon-releases/releases/download/v0.4.0/Pigeon-0.4.0-arm64.zip"
