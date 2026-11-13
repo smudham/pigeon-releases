@@ -260,6 +260,28 @@
                        length="126157367"
                        type="application/octet-stream"/>
         </item>
+        <item>
+            <title>Pigeon 0.4.0</title>
+            <pubDate>Fri, 13 Nov 2026 14:09:02 -0500</pubDate>
+            <sparkle:version>0.4.0</sparkle:version>
+            <sparkle:shortVersionString>0.4.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>12.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+                <h2>What's New</h2>
+                <h3>Fixes</h3>
+                <ul>
+                <li>Show tooltips and turned chevrons; load test the open request (#44)</li>
+                </ul>
+                <h3>Performance</h3>
+                <ul>
+                <li>Speed up large workspaces, runs, responses and imports (#43)</li>
+                </ul>
+            ]]></description>
+            <enclosure url="https://github.com/smudham/pigeon-releases/releases/download/v0.4.0/Pigeon-0.4.0-arm64.zip"
+                       sparkle:edSignature="hgW5FqjpE50Nmqbpz80dvGIpRxGqr56Pn19UoYSCJGbD5xCZyQ5A5UwFZJoEnBRgIKT3gjhraco5wLxO0lP5Bg=="
+                       length="126160336"
+                       type="application/octet-stream"/>
+        </item>
         <!-- APPCAST_ITEMS -->
     </channel>
 </rss>
